@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -35,7 +36,7 @@ public class Topic_08_Web_Browser {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);}
 
 	@Test
-	public void TC_01_() {
+	public void TC_01_Browser() {
 		// Các hàm tương tác với Browser thông qua biến driver
 		
 		//Đóng tab/windown đang active
@@ -83,7 +84,78 @@ public class Topic_08_Web_Browser {
 
 	@Test
 	public void TC_02_() {
+		driver.get("https://www.facebook.com/");
+		// Các hàm tương tác với Element sẽ thông qua các element
 		
+		// 2 cách để mình thao tác
+		// Khai báo biến và dùng lại
+		// Dùng đi dùng lại nhiều lần- dùng ít nhất là 2 lần thì mới cần khai báo biên
+		
+		// Khai báo biến cùng với kiểu dữ liệu trả về của Findelement
+         WebElement emailAddressTextbox = driver.findElement(By.id("email"));
+         emailAddressTextbox.clear();
+         emailAddressTextbox.sendKeys("minhthu@gmail.com");
+		
+		//Dùng trực tiếp- dùng 1 lần 
+         driver.findElement(By.id("email"));
+         driver.findElement(By.id("email")).sendKeys("minhthu@gmail.com");
+	}
+	@Test
+	public void TC_03_Element() {
+		driver.get("https://www.facebook.com/");
+	//Các hàm tương tác với Elementsẽ thông qua các class WebElement 
+		// Xoá dữ liệu trong 1 field dạng editable (có thể nhập)
+		// textbox/ text area/ editable dropdown
+		
+	element.clear();
+	// nhập dữ liệu vào field dạng editable
+	element.sendKeys("minhthu@gmail.com");
+	// trả về giá trị nằm trong cái attribute của elemenl
+	element.getAttribute("placeholder");
+	// Email address orr phone number
+	driver.findElement(By.id("firstname")).getAttribute("value");
+	
+	
+	// tra veef thuoocj tinhs css cuar element nafy
+	// trar veef mafu neefn cuar element
+	element.getCssValue("background-color");
+	// trar veef font size cuar element
+	element.getCssValue("font-size");
+	// test GUI: point/ rectangle/ size
+	element.getLocation();
+	element.getRect();
+		// Chụp màn hình và attach vào HTML report
+	element.getScreenshotAs(OutputType.FILE);
+	
+	// Tra veef ther HTML cuar Element
+	WebElement emailAddressTextbox = driver.findElement(By.xpath("//*[@id='email']"));
+	emailAddressTextbox = driver.findElement(By.cssSelector("#email"));
+	emailAddressTextbox.getTagName();
+	
+	// trả về text của 1 element (Link/Header/Message lỗi/ mesage success/..)
+	element.getText();
+	//Trả về giá trị đúng hoặc sai của 1 element có hiể thị hoặc không
+	element.isDisplayed();
+	//hiển thị là true còn không hiển thị là false
+	
+	// trả về giá trị đúng hoặc sai của 1 element có thể thao tác được hay không
+	element.isEnabled();
+	// enabled: true
+	// bi disable: false
+	
+	// tra veeef gias trij ddungs hoacj sai cuar 1 element ddax dduwocj chonj rooif hay chuwa
+	// checkbox/radio
+	element.isSelected();
+	//chonj ra: true
+	//chuwa chonj: false
+	// dropdown cos mootj thuw vieen rieng ddeer xuwr ly(Select)
+	
+	
+	// Chir lafm vieecj dduwocj vowis Form (Register/login/search,..)
+	//submit = Enter owr 1 field naof ddos
+	//Submit vaof 1 field nafo ddos trong form
+	element.submit();
+	
 	}
 
 	@AfterClass
