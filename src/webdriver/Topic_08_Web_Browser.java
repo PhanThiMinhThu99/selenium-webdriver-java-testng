@@ -156,6 +156,8 @@ public class Topic_08_Web_Browser {
 	//Submit vaof 1 field nafo ddos trong form
 	element.submit();
 	
+	// click vafo nhuwngx element: Button/Link/Checkbox/Radio,..
+	element.click();
 	}
 
 	@AfterClass
