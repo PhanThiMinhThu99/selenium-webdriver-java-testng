@@ -41,9 +41,9 @@ public class Topic_09_Textbox_Textarea {
 	public void TC_01_Textbox_TextArea() {
 		driver.get("https://opensource-demo.orangehrmlive.com/index.php");
 		//Nhap vao User/Password textbox
-		driver.findElement(By.cssSelector("input#txtUsername")).sendKeys("Admin");
-		driver.findElement(By.cssSelector("input#txtPassword")).sendKeys("admin123");
-		driver.findElement(By.cssSelector("input#btnLogin")).click();
+		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("Admin");
+		driver.findElement(By.xpath("//input[@name=\"password\"]")).sendKeys("admin123");
+		driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
 		sleepInSecond(5);
 		//Open the Add Employee screen
 		driver.get("https://opensource-demo.orangehrmlive.com/index.php/pim/addEmployee");
